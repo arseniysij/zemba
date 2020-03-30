@@ -1,0 +1,1474 @@
+@import vars
+@import fonts
+@import libs
+// @import slick
+
+.slick-track
+	display: flex
+
+.slick-list
+	overflow: hidden
+
+
+// CUSTOM USER STYLES & IMPORTS
+
+::selection
+	background-color: $accent
+	color: #fff
+
+
+input, textarea
+	outline: none
+	&:focus:required:invalid
+		border-color: red
+	&:required:valid
+		border-color: green
+
+body
+	font-size: 16px
+	min-width: 360px
+	position: relative
+	line-height: 1.65
+	font-family: "Noah", "Roboto", sans-serif
+	overflow-x: hidden
+	color: $text
+	
+*
+	box-sizing: border-box
+
+img
+	max-width: 100%
+	height: auto
+
+a 
+	&:hover
+		text-decoration: none
+		color: $red
+
+.visually-hidden:not(:focus):not(:active),
+input[type="checkbox"].visually-hidden,
+input[type="radio"].visually-hidden 
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+
+
+
+.container
+	max-width: 1366px
+	width: 360px
+	padding:
+			right: 20px
+			left: 20px
+	margin:
+		left: auto
+		right: auto
+	@include media-breakpoint-up(lg)
+		width: 1024px
+		padding:
+			right: 48px
+			left: 48px
+	@include media-breakpoint-up(xl)
+		width: 1366px
+		padding:
+			right: 80px
+			left: 80px
+	  	
+
+
+
+// Custom Sass / Remove before use
+
+	
+@include media-breakpoint-up(sm)
+	.container
+		
+
+
+
+.img-responsive
+	display: block
+	max-width: 100%
+	height: auto
+
+
+
+.parent // Lazy Load Placeholder Generator: https://webdesign-master.ru/services/lazy/
+	background-image: url(data:image/gif;base64,R0lGODlhCgAIAIABAN3d3f///yH5BAEAAAEALAAAAAAKAAgAAAINjAOnyJv2oJOrVXrzKQA7)
+
+h2
+	font-family: Noah
+	font-weight: 600
+	font-size: 42px
+	line-height: 110%
+	color: $cream
+	@include media-breakpoint-up(lg)
+		font-size: 54px
+	@include media-breakpoint-up(xl)
+		font-size: 64px
+
+// ____________________HEADER____________________
+
+.header
+	background: url(../img/@2x/header-bg-sm.jpg) no-repeat
+	background-position: center top
+	@include media-breakpoint-up(md)
+		background-image: url(../img/@2x/header_bg--tabl.jpg)
+	@include media-breakpoint-up(xl)
+		background-image: url(../img/@2x/header_bg.jpg)
+
+
+.header .container
+	display: flex
+	justify-content: space-between
+	align-items: start
+	min-height: 768px
+	
+	@include media-breakpoint-down(sm)
+		min-height: 640px
+
+
+.logo img
+	width: 103px
+	margin-top: 21px
+
+
+.header-menu
+	margin: 0
+	padding: 0
+	padding-top: 25px
+	@include media-breakpoint-down(md)
+		display: none
+
+.header-list
+	display: flex
+	justify-content: space-between
+	list-style: none
+	margin: 0
+	padding: 0
+
+.header-list a	
+	color: $brown-red
+	font-size: 16px
+	line-height: 20px
+	transition: color 0.3s
+	&:hover
+		color: $red
+
+.header-list__item
+	margin-right: 34px
+
+.header-socials
+	display: flex
+	align-items: center
+	margin-top: 23px
+	padding-bottom: 5px
+	a
+		margin-right: 19px
+	@include media-breakpoint-down(md)
+		display: none
+
+.header-compas
+	display: flex
+
+
+.header-compas img
+	margin-right: 5px
+
+.header-compas p
+	margin-bottom: -2px
+	font-family: Noah
+	font-weight: 600
+	color: $brown-red
+	font-size: 16px
+	&:hover
+		color: $red
+
+.mob-nav
+	position: fixed
+	display: flex
+	visibility: hidden
+	top: 0
+	left: 0
+	justify-content: center
+	align-items: center
+	margin: 0
+	padding: 0
+	background-color: #fff
+	width: 100vw
+	height: 100vh
+	transition: all 0.5s
+	z-index: 100
+	// animation: fadeEffect .5s
+	transition: all .5s
+	opacity: 0
+
+@keyframes fadeEffect 
+	from 
+		opacity: 0
+	to 
+		opacity: 1
+
+
+
+.mob-nav--active	
+	visibility: visible
+	opacity: 1
+	transition: all .5s
+
+.mob-nav-list
+	display: flex
+	flex-direction: column
+	flex-wrap: wrap
+	align-items: center
+	list-style: none
+	margin: 0
+	padding: 0
+
+
+.mob-nav-list__item a
+	display: block
+	padding: 5px 5px
+	font-family: 'Noah'
+	font-weight: 400
+	font-size: 16px
+	color: $brown-red
+
+.header-btn
+	position: fixed
+	display: flex
+	justify-content: center
+	align-items: center
+	width: 40px
+	height: 30px
+	top: 25px
+	right: 30px
+	z-index: 110
+	@include media-breakpoint-up(lg)
+		display: none
+	&:hover
+		cursor: pointer
+
+
+.header-btn span
+	position: relative
+	display: block
+	width: 28px
+	height: 3px
+	background-color: #EEB127
+	border-radius: 10px
+	
+
+	transition: background-color 0.3s
+	transition-delay: 0.2s
+	&::before, &::after
+		content: ""
+		position: absolute
+		background-color: #EEB127
+		border-radius: 10px
+		transition: all 0.3s ease-in
+	&::before
+		top: -8px
+		right: 0px
+		width: 28px
+		height: 3px
+	&::after
+		content: ""
+		position: absolute
+		bottom: -8px
+		right: 0
+		width: 28px
+		height: 3px
+
+.header-btn.header-btn--active span
+	background-color: transparent	
+	transition: background-color 0.2s
+
+.header-btn.header-btn--active span::before
+	transform: rotate(45deg)
+	top: 0px
+	transition: all 0.3s ease-in
+
+.header-btn.header-btn--active span::after
+	transform: rotate(-45deg)
+	bottom: 0
+	transition: all 0.3s ease-in
+
+
+
+// ____________________HEADER END____________________
+
+// ____________________Hello section____________________
+
+.hello
+	background-color: $coffee-red
+	
+
+.hello .container
+	position: relative
+	display: flex
+	justify-content: center
+	align-items: center
+	padding-top: 75px
+	padding-bottom: 80px
+	padding-right: 0
+	padding-left: 0
+	@include media-breakpoint-up(lg)
+		padding-top: 137px
+		padding-bottom: 145px
+	@include media-breakpoint-up(xl)
+		padding-top: 115px
+		padding-bottom: 170px
+
+
+.hello-words
+	width: 321px
+	@include media-breakpoint-up(lg)
+		width: 470px
+		margin-right: 63px
+		margin-left: 55px
+	@include media-breakpoint-up(xl)
+		width: 500px
+		margin-right: 71px
+		margin-left: 85px
+
+.hello-words h1
+	margin: 0
+	margin-bottom: 30px
+	font-family: 'Noah'
+	font-size: 42px
+	font-weight: 600
+	line-height: 110%
+	color: $cream
+	@include media-breakpoint-up(lg)
+		font-size: 54px
+	@include media-breakpoint-up(xl)
+		font-size: 64px
+	
+
+
+.hello-words p
+	margin: 0
+	margin-bottom: 390px
+	font-family: 'Roboto'
+	font-size: 18px
+	font-weight: 400
+	line-height: 140%
+	color: $cream
+	@include media-breakpoint-up(lg)
+		margin-bottom: 40px
+
+.hello-img
+	position: absolute
+	bottom: 140px
+	z-index: 2
+	width: 273px
+	margin-bottom: 70px
+	@include media-breakpoint-up(lg)
+		align-self: flex-end
+		position: relative
+		bottom: auto
+		width: 386px
+		margin-bottom: 0px
+		padding-right: 55px
+	@include media-breakpoint-up(xl)
+		width: 496px
+
+	&::before
+		content: ""
+		position: absolute
+		display: block
+		bottom: -40px
+		left: -40px
+		width: 76px
+		height: 76px
+		background-image: url(../img/hello-img-pat-bott-sm.svg)
+		background-repeat: no-repeat
+		@include media-breakpoint-up(lg)
+			bottom: -50px
+			left: -50px
+			width: 107px
+			height: 107px
+			background-image: url(../img/hello-img-pat-bott-lg.svg)
+		@include media-breakpoint-up(xl)
+			background-image: url(../img/hello-img-pat-bott.svg)
+			bottom: -80px
+			left: -80px
+			width: 171px
+			height: 171px
+
+	&::after
+		content: ""
+		position: absolute
+		display: block
+		width: 160px
+		height: 160px
+		top: -28px
+		right: -28px
+		background-image: url(../img/hello-img-pat-up-sm.svg)
+		background-repeat: no-repeat
+		z-index: -10
+		@include media-breakpoint-up(lg)
+			background-image: url(../img/hello-img-pat-up-lg.svg)
+			top: -45px
+			right: 10px
+			width: 227px
+			height: 227px
+		@include media-breakpoint-up(xl)
+			background-image: url(../img/hello-img-pat-up.svg)
+			top: -55px
+			right: 0px
+			width: 306px
+			height: 306px
+		
+
+
+.to-menu
+	display: inline-block
+
+	margin-right: 18px
+	padding: 12px 28px 12px 28px
+	background-color: $savanna
+	font-family: Noah
+	font-weight: 600
+	font-size: 18px
+	
+	color: $coffee-red
+	text-align: center
+	vertical-align: center
+	border-radius: 25px
+	@include media-breakpoint-up(lg)
+		padding: 12px 43px 12px 43px
+		margin-right: 16px
+	@include media-breakpoint-up(xl)
+		padding: 12px 65px 12px 65px
+		margin-right: 20px
+
+.to-map
+	position: relative
+	display: inline-block
+	background-color: $cream
+	padding: 12px 34px 12px 55px
+	font-family: Noah
+	font-weight: 600
+	font-size: 18px
+	color: $coffee-red
+	border-radius: 25px
+	@include media-breakpoint-up(lg)
+		padding: 12px 40px 12px 60px
+	@include media-breakpoint-up(xl)
+		padding: 12px 50px 12px 71px
+	&::before
+		content: ""
+		position: absolute
+		top: 18px
+		left: 34px
+		display: block
+		width: 16px
+		height: 16px
+		background-image: url(../img/IconCompass.svg)
+		@include media-breakpoint-up(lg)
+			left: 39px
+		@include media-breakpoint-up(xl)
+			left: 41px
+
+
+// ____________________Hello section END____________________
+
+// ____________________Menu section ____________________
+.menu
+	background-color: $coffee-red
+.menu .container
+	width: auto
+	padding-top: 21px
+	padding-bottom: 80px
+	padding-right: 0
+	padding-left: 0
+	@include media-breakpoint-up(lg)
+		display: flex
+		justify-content: space-between
+		width: 976px
+		margin: 0 auto
+		padding-top: 33px
+		padding-left: 60px
+		padding-right: 0px
+	@include media-breakpoint-up(xl)
+		width: 1282px
+		padding-top: 67px
+		padding-left: 80px
+
+.menu-header
+	display: flex
+	flex-direction: column
+	width: 321px
+	@include media-breakpoint-down(md)
+		margin: 0 auto
+
+	@include media-breakpoint-up(lg)
+		width: 207px
+		padding-top: 148px
+		padding-right: 30px
+	@include media-breakpoint-up(xl)
+		width: 224px
+		padding-left: 0px
+		
+
+
+.menu-title
+	display: flex
+	justify-content: center
+	align-items: center
+	margin-bottom: 40px
+	@include media-breakpoint-up(lg)
+		margin-bottom: 55px
+		flex-direction: column
+		align-items: end
+	@include media-breakpoint-up(xl)
+		margin-bottom: 75px
+
+.menu-title img
+	width: 65px
+	margin-right: 7px
+	@include media-breakpoint-up(lg)
+		width: 86px
+		margin-left: 25px
+	@include media-breakpoint-up(xl)
+		width: 102px
+	
+.menu-title h2
+	margin: 0
+	padding-top: 5px
+	font-family: Noah
+	font-weight: 600
+	font-size: 42px
+	line-height: 110%
+	color: $cream
+	@include media-breakpoint-up(lg)
+		font-size: 54px
+	@include media-breakpoint-up(xl)
+		font-size: 64px
+		
+		
+
+.menu-btns__list
+	display: flex
+	justify-content: space-between
+	width: 322px
+	margin: 0 auto
+	margin-bottom: 40px
+	padding: 0
+	list-style: none
+	@include media-breakpoint-up(lg)
+		flex-direction: column
+		width: auto
+
+.menu-btns__list--bottom
+	@include media-breakpoint-up(lg)
+		display: none
+	
+
+
+.menu-btns__list-item:nth-child(1) a
+	position: relative
+	@include media-breakpoint-down(md)
+		padding: 10px 13px 10px 13px
+		margin-right: 10px
+	@include media-breakpoint-up(lg)
+		
+	&::before
+		content: ""
+		position: absolute
+		top: -23px
+		left: 15px
+		width: 81px
+		height: 38px
+		background-image: url(../img/cup.svg)
+		background-repeat: no-repeat
+		@include media-breakpoint-up(lg)
+			width: 122px
+			height: 54px
+			background-image: url(../img/cup-lg.svg)
+			top: -33px
+			left: 15px
+.menu-btns__list-item:nth-child(2) a
+	@include media-breakpoint-down(md)
+		padding: 10px
+		margin-right: 10px
+	@include media-breakpoint-up(lg)
+		padding-left: 20px
+		padding-right: 15px
+		padding-top: 13px
+		padding-bottom: 13px
+		font-size: 18px;
+		line-height: 140%
+.menu-btns__list-item:nth-child(3) a
+	@include media-breakpoint-down(md)
+		padding: 17px 11px 16px 14px
+	@include media-breakpoint-up(lg)
+		padding-left: 20px
+		padding-right: 15px
+		padding-top: 13px
+		padding-bottom: 13px
+		font-size: 18px;
+		line-height: 140%
+
+.menu-btns__list-item span
+	@include media-breakpoint-down(lg)
+		display: none
+	@include media-breakpoint-up(lg)
+		display: inline
+		padding-top: 4px
+		color: #E7B797
+		font-weight: 400
+		font-size: 14px
+		line-height: 140%
+	
+	
+	
+	
+
+.menu-btns__list-item a
+	display: inline-block
+	font-family: 'Noah'
+	font-weight: 600
+	line-height: 95%
+	text-align: center
+	vertical-align: middle
+	color: $brown-red
+	background-color: $cream
+	border-radius: 12px
+	@include media-breakpoint-up(lg)
+		display: flex
+		justify-content: space-between
+		margin-bottom: 43px
+		width: 206px
+		padding-left: 20px
+		padding-right: 15px
+		padding-top: 13px
+		padding-bottom: 13px
+		font-size: 18px;
+		line-height: 140%
+	@include media-breakpoint-up(xl)
+		width: 224px
+		padding-right: 22px
+		
+		
+
+.menu-btns__list-item.active a
+	background-color: $savanna
+
+.menu-btns__list-item.active span
+	color: $brown-red
+	font-weight: 400
+
+// ____________________Menu section END____________________
+
+// ____________________Menu ROSTER section ____________________
+
+.menu-roster
+	width: 360px
+	padding: 50px 0px 15px 0px
+	background-color: #FFF1E8
+	border-radius: 25px
+	@include media-breakpoint-down(md)
+		margin: 0 auto
+	@include media-breakpoint-up(lg)
+		width: 680px
+		padding:
+			top: 80px 
+		border-radius: 94px 0 0 94px
+	@include media-breakpoint-up(xl)
+		width: 941px
+		padding-top: 50px
+
+
+
+.menu-slider-list
+	list-style: none
+	margin: 0
+	margin-bottom: 20px
+	padding: 0
+
+.menu-slider-item
+	padding-top: 20px
+	padding-bottom: 30px
+	&:focus
+		outline: none
+	& a:focus
+		outline: none
+	@include media-breakpoint-up(lg)
+		padding-top: 50px
+		padding-bottom: 60px
+
+.menu-roster-items
+	list-style: none
+	margin: 0
+	margin-bottom: 40px
+	padding: 0
+	display: flex
+	flex-wrap: wrap
+	padding-left: 20px
+	padding-right: 20px
+	@include media-breakpoint-up(lg)
+		width: 
+		padding-left: 45px
+		padding-right: 67px
+	@include media-breakpoint-up(xl)
+		padding-left: 145px
+		padding-right: 160px
+
+	
+
+.menu-roster-item
+	position: relative
+	width: 153px
+	height: 247px
+	margin-bottom: 30px
+	padding-top: 130px
+	@include media-breakpoint-up(lg)
+		width: 154px
+		margin-right: 53px
+		margin-bottom: 25px
+	@include media-breakpoint-up(xl)
+		margin-right: 87px
+
+		
+
+.menu-roster-item img
+	position: absolute
+	top: 0
+	padding-left: 20px
+
+.cup-lg
+	width: 136px
+	@include media-breakpoint-up(lg)
+
+
+
+.menu-roster-item .cup-espresso
+	position: absolute
+	top: 15px
+	
+
+.menu-roster-item:nth-child(odd)
+	@include media-breakpoint-only(md)
+		margin-right: 14px
+	
+.menu-roster-item:nth-child(3n)	
+	@include media-breakpoint-up(lg)
+		margin-right: 0
+
+.slider-element
+	display: flex
+	position: relative
+	width: 251px
+	height: 88px
+	margin-right: 16px
+	padding:
+		left: 33px
+		right: 24px
+	background-image: url(../img/@2x/slider-bg.png)
+	background-repeat: no-repeat
+	background-position: 
+	box-shadow: 0px 15px 19px rgba(103, 6, 49, 0.1);
+	border-radius: 44px
+	&:focus
+		outline: none
+	@include media-breakpoint-up(lg)
+		background-image: url(../img/@2x/slider-bg-lg.png)
+		width: 474px
+		height: 167px
+		box-shadow: 0px 32px 27px rgba(103, 6, 49, 0.1)
+		margin:
+			right: 30px
+		background-position: top center
+	@include media-breakpoint-up(xl)
+		width: 632px
+		background-image: url(../img/@2x/slider-bg-xl.png)
+		height: 223px
+		
+	
+.slider-element-img
+	position: relative
+	top: -7px
+	left: 0px
+	width: 44px
+	transform: rotate(-4.15deg)
+	@include media-breakpoint-up(lg)
+		width: 82px
+		top: -14px
+	@include media-breakpoint-up(xl)
+		width: 127px
+		top: -45px
+		transform: rotate(0deg)
+
+	
+.slider-element__text
+	padding-left: 12px
+
+.slider-element__title
+	position: 
+	top: 18px
+	left: 94px
+	width: 133px
+	padding: 
+		top: 18px
+		left: 12px
+	font-size: 18px;
+	line-height: 22px
+	font-weight: 600
+	color: $brown-red
+	@include media-breakpoint-up(lg)
+		width: 210px
+		margin-bottom: 5px
+		padding-top: 16px
+		padding-left: 0
+		font-size: 24px;
+		line-height: 30px
+	@include media-breakpoint-up(lg)
+		width: 263px
+	@include media-breakpoint-up(xl)
+		margin-bottom: 13px
+		padding-top: 26px
+
+
+.slider-element__descr
+	position: 
+	display: none
+	width: 227px
+	font-family: Roboto
+	font-size: 16px;
+	line-height: 140%
+	color: $brown-red
+	font-weight: 400
+	@include media-breakpoint-up(lg)
+		display: block
+		width: 227px
+	@include media-breakpoint-only(lg)
+		&::after
+			content: "..."
+	@include media-breakpoint-up(xl)
+		width: 350px
+
+.slider-element__descr--xl
+	display: none
+	@include media-breakpoint-up(xl)
+		display: inline
+	
+
+
+
+	
+
+.roster-item-title
+	padding-left: 22px
+	color: $brown-red
+	font-family: Noah
+	font-size: 21px
+	line-height: 26px
+	@include media-breakpoint-up(lg)
+		font-size: 24px
+		line-height: 30px
+
+
+#roster-table
+	
+#roster-table td
+	padding-bottom: 11px
+
+
+#roster-table td
+	font-family: 'Roboto'
+	font-size: 14px
+	font-weight: 400
+	line-height: 16px
+	color: $brown-red
+
+#roster-table .cofee-size, #roster-table .roster-price
+	font-size: 16px
+	font-weight: 600
+	line-height: 19px
+	@include media-breakpoint-up(lg)
+
+	
+
+td.cofee-size
+	padding-right: 5px
+	@include media-breakpoint-up(lg)
+		padding-right: 15px
+		font-size: 18px
+		line-height: 21px
+
+td.cofee-amount
+	position: relative
+	top: 2px
+	padding-right: 11px
+	
+	padding-bottom: 0
+	@include media-breakpoint-up(lg)
+		padding-right: 15px
+	
+// ____________________Menu ROSTER section END____________________
+
+
+// ____________________Insta section START____________________
+
+
+.insta-section
+	background-color: $coffee-red
+	padding-bottom: 80px
+
+.insta-section .container
+	padding-top: 63px
+	padding-left: 0
+	padding-right: 0
+	
+	@include media-breakpoint-up(lg)
+		padding-left: 60px
+		padding-right: 60px
+		padding-top: 8px
+	@include media-breakpoint-up(xl)
+		padding-top: 40px
+
+.insta__title
+	margin-bottom: 80px
+	@include media-breakpoint-up(lg)
+		margin-left: 60px
+		margin-right: 60px
+		margin-bottom: 50px
+		margin-left: 80px
+
+// .insta-slider-wrap
+// 	display: flex
+// 	justify-content: space-between
+// 	align-items: center
+// 	width: 334px
+// 	margin: 0 auto
+// 	@include media-breakpoint-up(lg)
+// 		width: 913px
+// 	@include media-breakpoint-up(xl)
+// 		width: 1286px
+
+// .slider-btn
+// 	width: 12px
+// 	background-size: cover
+// 	@include media-breakpoint-up(lg)
+// 		width: 19px
+
+
+.insta-slider
+	position: relative
+	list-style: none
+	padding: 0
+	width: 277px
+	margin: 0 auto
+	
+	@include media-breakpoint-up(lg)
+		width: 812px
+	@include media-breakpoint-up(xl)
+		width: 1204px
+	&::before
+		content: ""
+		position: absolute
+		top: -12px
+		left: -15px
+		width: 79px
+		height: 79px
+		background-image: url(../img/insta-slider-dec1.svg)
+		background-size: cover
+		@include media-breakpoint-up(lg)
+			width: 206px
+			height: 206px
+			top: -20px
+			left: 165px
+		@include media-breakpoint-up(xl)
+			width: 306px
+			height: 306px
+			top: -35px
+			left: 255px
+
+	&::after
+		content: ""
+		position: absolute
+		top: 90px
+		right: -15px
+		z-index: 10
+		width: 45px
+		height: 45px
+		background-image: url(../img/insta-slider-dec2.svg)
+		background-size: cover
+		@include media-breakpoint-up(lg)
+			width: 115px
+			height: 115px
+			top: 120px
+			right: 140px
+		@include media-breakpoint-up(xl)
+			width: 171px
+			height: 171px
+			top: 174px
+			right: 200px
+
+	
+.insta-slider__item
+	width: 133px
+	margin-right: 11px
+	@include media-breakpoint-up(lg)
+		width: 193px
+		margin-right: 13px
+	@include media-breakpoint-up(xl)
+		width: 286px
+		margin-right: 20px
+	
+
+.insta-slider .slick-arrow
+	position: absolute
+	top: 50%
+	margin-top: -17px
+	font-size: 0
+	z-index: 10
+	background-size: cover
+	border: none
+
+.insta-slider .slick-prev
+	width: 18px
+	height: 35px
+	background: url('../img/slider-arrow-left.svg') center no-repeat
+	left: -30px
+	
+.insta-slider .slick-next
+	width: 18px
+	height: 35px
+	background: url('../img/slider-arrow-right.svg') 0 0 / 100% no-repeat
+	right: -30px
+
+// ____________________Insta section END____________________
+
+.location-section
+	background-color: $coffee-red
+	padding-bottom: 86px
+
+.location-section .container
+	padding-left: 0
+	padding-right: 0
+	@include media-breakpoint-up(lg)
+		padding: 
+			right: 48px
+	@include media-breakpoint-up(xl)
+		padding-right: 80px
+
+.location-title
+	margin-bottom: 32px
+	@include media-breakpoint-up(lg)
+		margin-bottom: 55px
+
+.locations-wrap
+	@include media-breakpoint-up(lg)
+		display: flex
+		justify-content: space-between
+
+.location-map 
+	overflow: hidden
+	height: 398px
+	margin-bottom: 27px
+	@include media-breakpoint-up(lg)
+		width: 502px
+		height: 556px
+		margin-bottom: 0
+	@include media-breakpoint-up(xl)
+		width: 775px
+		height: 555px
+
+.addresses-search
+	text-align: center
+	position: relative
+	margin-bottom: 20px
+	@include media-breakpoint-up(lg)
+	text-align: left
+
+		
+
+.addresses-search input
+	width: 321px
+	height: 52px
+	padding:
+		top: 14px
+		bottom: 14px
+		left: 53px
+		right: 28px
+	border: none
+	border-radius: 25px
+	background-color: $cream
+	color: $coffee-red
+	font-family: 'Roboto'
+	font-weight: 400
+	font-size: 18px
+	line-height: 140%
+	@include media-breakpoint-up(lg)
+		width: 395px
+		margin-right: auto
+	@include media-breakpoint-up(xl)
+		width: 408px
+
+.addresses-search label
+	position: relative
+	margin: 0
+	&::before
+		content: ""
+		position: absolute
+		top: 18px
+		left: 23px
+		width: 16px
+		height: 16px
+		background: url(../img/search-icon.svg) no-repeat 
+		font-size: 0
+	
+		
+.addresses-search input::placeholder
+	color: $coffee-red
+	font-family: 'Roboto'
+	font-weight: 400
+	font-size: 18px
+	line-height: 140%
+
+.location-addresses
+	position: relative
+	width: 378px
+	left: -18px
+	height: 400px
+	padding: 
+		left: 20px
+		right: 20px
+	overflow: scroll
+	&::after
+		content: ""
+		position: absolute
+		width: 1px
+		height: 400px
+		right: -12px
+		top: 0
+		background-color: #fff
+		z-index: 0
+	@include media-breakpoint-up(lg)
+		width: 454px
+	@include media-breakpoint-up(xl)
+		width: 490px
+
+.location-item p:last-child
+	margin-bottom: 0
+
+.location-item
+	font-family: Roboto
+	font-weight: 400
+	color: #ffddc4
+	padding: 
+		left: 28px
+		right: 28px
+		top: 25px
+		bottom: 25px
+
+.location-item:not(:last-child)
+	border-bottom: 1px solid #FFDDC6
+
+.location__address
+	position: relative
+	margin: 0 
+	padding-right: 18px
+	font-weight: 500;
+	font-size: 18px;
+	line-height: 140%
+	@include media-breakpoint-up(lg)
+		font-size: 21px
+	&::before
+		content: ""
+		position: absolute
+		top: 0
+		left: -28px
+		width: 17px
+		height: 21px
+		background-image: url(../img/address-arrow.svg)
+		transition: transform 0.3s
+
+.location__address.active::before
+	transform: rotate(180deg)
+	
+
+.location__address__info
+	display: none
+	margin-top: 16px
+	font-weight: 400
+	font-size: 16px
+
+
+.on 
+  display: block
+
+
+.contacts-section
+	background-color: #FFDDC4
+
+.contacts-section .container
+	padding-top: 100px
+	@include media-breakpoint-up(lg)
+		display: flex
+		justify-content: space-between
+
+.contacts-section-wrap
+	padding-bottom: 12px
+	@include media-breakpoint-up(lg)
+		width: 454px
+		margin-left: 60px
+	@include media-breakpoint-up(xl)
+		width: 510px
+		margin-left: 80px
+
+.contacts-section-wrap p,
+.contacts-section-wrap a
+	font-family: 'Roboto'
+	color: $coffee-red
+	line-height: 140%
+
+.contacts-section__title
+	color: $coffee-red
+	margin-bottom: 40px
+
+	@include media-breakpoint-up(xl)
+
+	& br
+		@include media-breakpoint-up(xl)
+			display: none
+
+
+.contacts-section__address
+	position: relative
+	margin-bottom: 2px
+	padding-left: 24px
+	color: $coffee-red
+	font-size: 21px
+	font-weight: 500
+	&::before
+		content: ""
+		position: absolute
+		width: 16px
+		height: 16px
+		top: 8px
+		left: 2px
+		background: url(../img/compas-red.svg) no-repeat
+
+
+.contacts-section__city
+	padding-left: 24px
+	font-size: 18px
+	color: $coffee-red
+	margin-bottom: 20px
+
+.contacts-section__phone
+	position: relative
+	padding-left: 24px
+	font-size: 18px
+	display: block
+	font-weight: 500
+	margin-bottom: 22px
+	text-decoration: underline
+	&::before
+		content: ""
+		display: block
+		position: absolute
+		width: 20px
+		height: 25px
+		top: -3px
+		left: 2px
+		background: url(../img/phone.svg) no-repeat
+		background-size: cover
+
+.contacts-section__mail
+	position: relative
+	margin-bottom: 30px
+	padding-left: 24px
+	font-size: 18px
+	font-weight: 500
+	text-decoration: underline
+	@include media-breakpoint-down(lg)
+		margin-bottom: 19px
+	&::before
+		content: ""
+		display: block
+		position: absolute
+		width: 18px
+		height: 18px
+		top: 2px
+		left: 0px
+		background: url(../img/mail.svg) no-repeat
+		background-size: cover
+	& p
+		
+		
+
+		
+	
+
+.contacts-section__insta 
+	margin-left: 25px
+
+.contacts-section__insta img
+	display: inline-block
+	width: 18px
+	height: 18px
+	margin-right: 17px
+
+.contacts-section__fb img
+	display: inline-block
+	width: 10px
+	height: 18px
+
+.contacts-img
+	width: 360px
+	@include media-breakpoint-up(lg)
+		width: 640px
+	@include media-breakpoint-up(lg)
+		width: 600px
+
+.footer
+	background-color: $cream
+
+.footer .container
+	padding-top: 54px
+	padding-bottom: 29px
+
+.footer-wrap
+	@include media-breakpoint-up(lg)
+		display: flex
+		justify-content: space-between
+
+.footer-logo
+	width: 245px
+	height: 99px
+	@include media-breakpoint-only(md)
+		margin: 0 auto
+		margin-bottom: 48px
+
+.footer-menu
+	list-style: none		
+	margin: 0
+	padding: 0
+	margin-left: 45px
+	margin-bottom: 25px
+	@include media-breakpoint-up(lg)
+		margin-left: 71px
+
+.footer-menu__item a
+	display: block
+	margin-bottom: 10px
+	font-family: 'Roboto'
+	font-size: 21px
+	line-height: 25px
+	color: $brown-red
+	transition: color 0.5s
+	&:hover
+		color: #c40054
+	
+
+.footer .contacts-section-wrap
+	margin-left: 22px
+	padding-bottom: 0
+	margin-bottom: 34px
+	@include media-breakpoint-up(lg)
+	width: 380px
+		margin-left: 33px
+	@include media-breakpoint-up(lg)
+		margin-right: 200px
+
+.footer .contacts-section__address
+	font-size: 18px
+
+.up-btn
+	position: absolute
+	right: 24px
+	bottom: 180px
+	display: block
+	width: 60px
+	height: 46px
+	border: 2px solid $coffee-red
+	border-radius: 25px
+	@include media-breakpoint-up(lg)
+		bottom: 250px
+	@include media-breakpoint-up(xl)
+		width: 158px
+	&:before,
+	&:after
+		content: ""
+		position: absolute
+		background-color: $coffee-red
+		border-radius: 10px
+	&:before
+		top: 20px
+		left: 17px
+		width: 14px
+		height: 2px
+		transform: rotate(-45deg)
+	&:after
+		top: 20px
+		left: 26px
+		width: 14px
+		height: 2px
+		transform: rotate(45deg)
+
+.up-btn span
+	display: none
+	@include media-breakpoint-up(xl)
+		position: absolute
+		top: 10px
+		left: 55px
+		display: block
+		font-family: Roboto
+		font-size: 18px
+		line-height: 140%
+		color: $coffee-red
+
+
+.footer-copy
+	@include media-breakpoint-up(lg)
+		display: flex
+		justify-content: space-between
+
+.made-in
+	margin-left: 35px
+	margin-bottom: 34px
+	order: 2
+	@include media-breakpoint-up(lg)
+		margin-left: 0
+		margin-bottom: 0
+
+.made-in p
+	display: inline
+	margin: 0
+	margin-right: 7px
+	font-weight: 600
+	font-size: 24px;
+	line-height: 30px
+	color: $coffee-red
+
+.made-in img
+	order: 1
+	position: relative
+	top: -5px
+
+.footer-year
+	margin-left: 31px
+	color: #D49F93
+	font-weight: 600
+	font-size: 24px;
+	line-height: 30px
+	@include media-breakpoint-up(lg)
+		margin-left: 0
+		margin-bottom: 0
+		color: $coffee-red
