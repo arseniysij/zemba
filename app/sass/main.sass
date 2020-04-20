@@ -1,7 +1,7 @@
 @import vars
 @import fonts
 @import libs
-// @import slick
+@import animate
 
 .slick-track
 	display: flex
@@ -121,11 +121,10 @@ h2
 // ____________________HEADER____________________
 
 .header
-	background: url(../img/@2x/header-bg-sm.jpg) no-repeat
 	background-position: center top
-	@include media-breakpoint-up(md)
-		background-image: url(../img/@2x/header_bg--tabl.jpg)
-	@include media-breakpoint-up(xl)
+	background-image: url(../img/@2x/header_bg--tabl.jpg)
+	background-repeat: no-repeat
+	@include media-breakpoint-up(lg)
 		background-image: url(../img/@2x/header_bg.jpg)
 
 

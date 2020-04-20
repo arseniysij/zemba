@@ -113,6 +113,8 @@ function toggleMobNav() {
 	});
 
 
+
+	new WOW().init();
 });
 
 
